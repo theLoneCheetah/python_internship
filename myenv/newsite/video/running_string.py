@@ -31,7 +31,7 @@ def create_running_string(text):
 	text_size, _ = cv2.getTextSize(text, font, font_size, font_width)
 
 	# расчёт начальных координат и общего числа кадров
-	x_coord, y_coord = size[0] // 3 * 2, size[1] // 2
+	x_coord, y_coord = size[0] // 3 * 2, size[1]
 	total = duration * fps
 
 	# инициализация пустого кадра
@@ -42,7 +42,7 @@ def create_running_string(text):
 		frame.fill(255)
 		
 		# размещение текста с постепенным смещением влево
-		cv2.putText(frame, text, (int(y_coord - text_size[0] * i // total), x_coord), font, font_size, color, font_width)
+		cv2.putText(frame, text, (int(y_coord - (text_size[0] + size[1]) * i // total), x_coord), font, font_size, color, font_width)
 		
 		# запись кадра
 		out.write(frame)
