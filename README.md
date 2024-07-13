@@ -9,3 +9,10 @@
 Помимо этого, вы сможете найти файл базы данных после выполнения нескольких запросов и пример видеофайла с бегущей строкой в каталоге newsite/.
 
 Скрипт с бегущей строкой в [Google Colab](https://colab.research.google.com/drive/1-pj5-MJg6ArBEfI6db9Hc7vmjEuOvLv7?usp=sharing).
+
+Ниже приведена ссылка на Colab, в котором клонируется данный репозиторий, создаётся локальное окружение и с помощью токена ngrok развёртывается веб-сервер с запросами вида:
+```
+https://<ваш_домен>.ngrok-free.app/gettext/?text=<str>
+```
+
+[Colab для запуска](https://colab.research.google.com/drive/1OdFF_TvSQtelLh9Vek2LlTC7H28AGnQr?usp=sharing)
