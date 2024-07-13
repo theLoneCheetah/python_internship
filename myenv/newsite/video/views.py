@@ -3,8 +3,11 @@ from django.http import HttpResponse, FileResponse
 import mimetypes
 from .running_string import create_running_string
 
-# строка из адресной строки принимается в качестве аргумента
-def video(request, text):
+def video(request):
+    # получение текста в качестве параметра строки запроса типа ?text=str
+    text = request.GET.get("text")
+    print(repr(text))
+	
     if text:
         # запуск скрипта для создания видео бегущей строки и получение пути к созданному файлу
         file_path = create_running_string(text)
@@ -25,7 +28,3 @@ def video(request, text):
     else:
         # иначе сообщение об ошибке
         return HttpResponse("Введите текст в адресной строке")
-
-def empty(request):
-	# при загрузке базового адреса приложения без указания строки возрат сообщения об ошибке
-	return HttpResponse("Введите текст в адресной строке")
